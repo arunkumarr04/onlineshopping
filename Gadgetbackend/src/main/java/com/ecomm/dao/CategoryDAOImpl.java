@@ -2,9 +2,11 @@ package com.ecomm.dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+import java.sql.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,8 +62,8 @@ public class CategoryDAOImpl implements CategoryDAO
 	public List<Category> listCategories() 
 	{
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Category");
-		List<Category> listCategories=query.list();
+		Query query= session.createQuery("from Category");
+		List<Category> listCategories=query.getResultList();
 		session.close();
 		return listCategories;
 	}

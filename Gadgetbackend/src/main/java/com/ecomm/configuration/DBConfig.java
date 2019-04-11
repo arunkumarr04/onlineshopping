@@ -1,4 +1,4 @@
-package com.ecomm.Gadgetbackend;
+package com.ecomm.configuration;
 
 import java.util.Properties;
 
